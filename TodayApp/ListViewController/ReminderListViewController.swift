@@ -24,10 +24,7 @@ class ReminderListViewController: UICollectionViewController {
             return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
         }
         
-        var snaphot = Snapshot()
-        snaphot.appendSections([0])
-        snaphot.appendItems(reminders.map { $0.id })
-        dataSource.apply(snaphot)
+        updateSnapshot()
         
         collectionView.dataSource = dataSource
     }
